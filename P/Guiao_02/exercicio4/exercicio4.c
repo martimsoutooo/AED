@@ -1,30 +1,29 @@
 #include <stdio.h>
+#include <stdlib.h> // Added stdlib.h header file
 
 void DisplayArray(double* a, size_t n);
+double* ReadArray(size_t* size_p);
+double* Append(double* array_1, size_t size_1, double* array_2, size_t size_2);
 
-int main() {
-    double array[] = {1.0, 2.5, 3.7, 4.2, 5.9};
-    size_t size = sizeof(array) / sizeof(array[0]);
+int main(void){
+    double* array1;
+    double* array2;
+    double* array3;
+    size_t size1;
+    size_t size2;
+    size_t size3;
 
-    DisplayArray(array, size);
+    array1 = ReadArray(&size1);
+    array2 = ReadArray(&size2);
+
+    array3 = Append(array1, size1, array2, size2);
+    size3 = size1 + size2;
+
+    DisplayArray(array3, size3);
+
+    free(array1); // Added free function call
+    free(array2);
+    free(array3);
 
     return 0;
 }
-
-void DisplayArray(double* a, size_t n) {
-    printf("Array = [");
-    for (size_t i = 0; i < n; i++) {
-        if (i == n - 1)
-            printf("%lf]", a[i]);
-        else
-            printf("%lf, ", a[i]);
-    }
-    printf("\n");
-}
-
-double* ReadArray(size_t* size_p){
-    array = malloc(size_p * sizeof(void));
-
-   
-}
-
