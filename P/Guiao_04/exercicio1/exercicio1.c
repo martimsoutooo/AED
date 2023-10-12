@@ -1,11 +1,9 @@
 #include <stdio.h>
 #include <assert.h>
 
-
-
 int check_property(int lista[], int tamanho_lista) {
     assert(tamanho_lista > 2); // Ensure the input array has at least 3 elements.
-    
+
     int comparações = 0;
     int counter = 0;
     
